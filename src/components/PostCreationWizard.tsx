@@ -14,6 +14,7 @@ import Invalid from "./Invalid";
 import Processing from "./Processing";
 import Review from "./Review";
 import VideoUploader from "./VideoUploader";
+import Steps from "./Steps";
 
 const PostCreationWizard = () => {
   const { currentState, handleNext } = usePostWorkflow();
@@ -29,6 +30,10 @@ const PostCreationWizard = () => {
           video.
         </CardDescription>
       </CardHeader>
+
+      <CardContent>
+        <Steps currentState={currentState} />
+      </CardContent>
 
       <CardContent>
         {currentState.type === "select-image" && (
