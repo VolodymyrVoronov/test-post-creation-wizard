@@ -6,24 +6,10 @@ import {
   publishPost,
   videoUpload,
 } from "@/services/api";
-import type {
-  CreateState,
-  DraftSaveResponse,
-  DraftState,
-  FlowInput,
-  ImageUploadResponse,
-  PublishResponse,
-  VideoUploadResponse,
-} from "@/types";
+import type { CreateState, DraftState, FlowInput, PostResponse } from "@/types";
 
 export function* createPostFlow(): Generator<
-  | CreateState
-  | Promise<
-      | ImageUploadResponse
-      | VideoUploadResponse
-      | PublishResponse
-      | DraftSaveResponse
-    >,
+  CreateState | Promise<PostResponse>,
   void,
   FlowInput
 > {

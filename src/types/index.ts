@@ -53,28 +53,6 @@ export type CreateState =
   | DoneState
   | ErrorState;
 
-export type ImageUploadResponse = {
-  id?: string;
-  imageUrl?: string;
-};
-
-export type DraftSaveResponse = {
-  id: string;
-  imageUrl: string;
-  title: string;
-  text: string;
-};
-
-export type VideoUploadResponse = {
-  id?: string;
-  imageUrl?: string;
-  title?: string;
-  text?: string;
-  videoUrl?: string;
-};
-
-export type PublishResponse = { id: string; published: boolean };
-
 export type PostResponse = {
   id: string;
   imageUrl: string;
@@ -87,9 +65,6 @@ export type PostResponse = {
 export type FlowInput =
   | string
   | { title: string; text: string }
-  | ImageUploadResponse
-  | DraftSaveResponse
-  | VideoUploadResponse
-  | PublishResponse
+  | PostResponse
   | null
   | undefined;
