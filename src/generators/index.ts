@@ -67,7 +67,7 @@ export function* createPostFlow(): Generator<
       if (imageUrl && typeof imageUrl === "string") {
         yield { type: "uploading-image" };
 
-        const result = yield* imageUpload(imageUrl);
+        const result = yield* imageUpload(draft.id || "", imageUrl);
 
         console.log("uploading-image result", result);
 
@@ -76,7 +76,9 @@ export function* createPostFlow(): Generator<
           continue;
         }
 
-        draftStorage.save(result.id || "");
+        if (!draft.id) {
+          draftStorage.save(result.id || "");
+        }
 
         draft.id = result.id || "";
         draft.image = imageUrl;

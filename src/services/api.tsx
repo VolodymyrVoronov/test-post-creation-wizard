@@ -22,12 +22,15 @@ export function* getPost(
 }
 
 export function* imageUpload(
+  postId: string,
   imageUrl: string,
 ): Generator<Promise<ImageUploadResponse>, ImageUploadResponse, FlowInput> {
   const body = JSON.stringify({ imageUrl });
 
-  const response = yield fetch(`${API}/posts`, {
-    method: "POST",
+  const method = postId ? "PATCH" : "POST";
+
+  const response = yield fetch(`${API}/posts/${postId}`, {
+    method,
     body,
   }).then((res) => res.json());
 
