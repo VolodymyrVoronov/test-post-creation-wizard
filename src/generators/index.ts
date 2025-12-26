@@ -189,8 +189,6 @@ export function* createPostFlow(): Generator<
     }
 
     yield { type: "done", postId: draft.id };
-
-    console.log("CLEAR LOCAL STORAGE");
   } catch (e) {
     console.warn(e);
 
