@@ -55,7 +55,7 @@ const ImageUploader = ({ currentState, handleNext }: IImageUploaderProps) => {
           }}
           disabled={!imageUrl}
         >
-          Upload Image
+          {currentState.value ? "Update Image" : "Upload Image"}
         </Button>
 
         {currentState.canSkip && (

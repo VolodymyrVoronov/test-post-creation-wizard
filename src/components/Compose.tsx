@@ -65,7 +65,9 @@ const Compose = ({ currentState, handleNext }: IComposeProps) => {
           }}
           disabled={!title || !text}
         >
-          Upload
+          {currentState.value.title && currentState.value.text
+            ? "Update title and text"
+            : "Add title and text first"}
         </Button>
 
         {currentState.canSkip && (

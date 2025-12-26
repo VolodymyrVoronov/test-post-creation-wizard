@@ -57,7 +57,7 @@ const VideoUploader = ({ currentState, handleNext }: IImageUploaderProps) => {
           }}
           disabled={!videoUrl}
         >
-          Upload YouTube video
+          {currentState.value ? "Update YouTube video" : "Upload YouTube video"}
         </Button>
 
         {currentState.canSkip && (
